@@ -1,0 +1,33 @@
+{
+  "chart": {
+    "title": "Daily new confirmed COVID-19 deaths per million people",
+    "subtitle": "7-day rolling average. Due to varying protocols and challenges in the attribution of the cause of death, the number of confirmed deaths may not accurately represent the true number of deaths caused by COVID-19.",
+    "citation": "World Health Organization (2026); Population based on various sources (2024)",
+    "originalChartUrl": "https://ourworldindata.org/explorers/covid?pickerSort=asc&pickerMetric=location&hideControls=false&Metric=Confirmed+deaths&Interval=7-day+rolling+average&Relative+to+population=true&country=USA~BRA~JPN~DEU",
+    "selection": [
+      "United States",
+      "Brazil",
+      "Japan",
+      "Germany"
+    ]
+  },
+  "columns": {
+    "Daily new confirmed deaths due to COVID-19 per million people (rolling 7-day average, right-aligned)": {
+      "titleShort": "New deaths (per 1M)",
+      "titleLong": "New deaths (per 1M)",
+      "descriptionProcessing": "This indicator is estimated by normalizing by population. We have used daily population estimates, which leads to changes in the denominator between datapoints from different days. For instance, the denominator for January 1st will be different to the one on January 2nd.",
+      "unit": "deaths per million people",
+      "timespan": "",
+      "type": "Numeric",
+      "owidVariableId": 954551,
+      "shortName": "new_deaths_per_million_7_day_avg_right",
+      "lastUpdated": "2026-04-19",
+      "nextUpdate": "2026-05-20",
+      "citationShort": "World Health Organization (2026); Population based on various sources (2024) – with minor processing by Our World in Data",
+      "citationLong": "World Health Organization (2026); Population based on various sources (2024) – with minor processing by Our World in Data. “New deaths (per 1M)” [dataset]. World Health Organization, “COVID-19 Dashboard WHO COVID-19 Dashboard - Daily cases and deaths”; Various sources, “Population” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/954551.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-04-19",
+  "activeFilters": {}
+}
