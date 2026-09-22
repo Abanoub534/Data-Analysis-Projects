@@ -10,7 +10,7 @@ Global analysis of the pandemic from January 1, 2020 to April 30, 2021.
 
 Using SQL, Python, and Power BI, it covers cases, deaths, case fatality rates, vaccination progress, transmission dynamics, and data quality across 219 countries and 6 continents.
 
-### [Quantium Retail Analytics – Potato Chip Sales Analysis](a%20year's%20worth%20potato%20chip%20transaction,%20and%20customer%20data%20for%20a%20region/README.md)
+### [Quantium Retail Analytics – Potato Chip Sales Analysis](a year's worth potato chip transaction, and customer data for a region/README.md)
 
 A retail analytics case study based on a year of potato chip transactions and customer data for a region.
 
