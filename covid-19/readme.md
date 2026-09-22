@@ -1,61 +1,262 @@
-# Daily new confirmed COVID-19 deaths per million people - Data package
+# COVID-19 Global Analysis
 
-This data package contains the data that powers the chart ["Daily new confirmed COVID-19 deaths per million people"](https://ourworldindata.org/explorers/covid?pickerSort=asc&pickerMetric=location&hideControls=false&Metric=Confirmed+deaths&Interval=7-day+rolling+average&Relative+to+population=true&country=USA~BRA~JPN~DEU) on the Our World in Data website. It was downloaded on April 19, 2026.
+## Project Overview
 
-### Active Filters
+This project looks at the global impact of COVID-19 between **January 1,
+2020 and April 30, 2021**.
 
-A filtered subset of the full data was downloaded. The following filters were applied:
+The analysis covers **219 countries across 6 continents** and focuses on
+cases, deaths, case fatality rates, vaccination, transmission, and data
+quality.
 
-## CSV Structure
+The goal was to turn the raw COVID-19 data into a clear view of how the
+pandemic affected different regions and countries, while also
+highlighting some of the limitations in the available data.
 
-The high level structure of the CSV file is that each row is an observation for an entity (usually a country or region) and a timepoint (usually a year).
+## What I Analyzed
 
-The first two columns in the CSV file are "Entity" and "Code". "Entity" is the name of the entity (e.g. "United States"). "Code" is the OWID internal entity code that we use if the entity is a country or region. For most countries, this is the same as the [iso alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) code of the entity (e.g. "USA") - for non-standard countries like historical countries these are custom codes.
+The project covers several main areas:
 
-The third column is either "Year" or "Day". If the data is annual, this is "Year" and contains only the year as an integer. If the column is "Day", the column contains a date string in the form "YYYY-MM-DD".
+-   Global COVID-19 cases and deaths
+-   Differences between continents
+-   Countries with the highest death tolls
+-   Case fatality rates
+-   Vaccination progress
+-   Transmission dynamics using R-values
+-   Missing and inconsistent data
+-   Key findings that can be useful for public-health decision making
 
-The final column is the data column, which is the time series that powers the chart. If the CSV data is downloaded using the "full data" option, then the column corresponds to the time series below. If the CSV data is downloaded using the "only selected data visible in the chart" option then the data column is transformed depending on the chart type and thus the association with the time series might not be as straightforward.
+## Key Findings
 
+### Global Impact
 
-## Metadata.json structure
+By the end of April 2021, the dataset showed more than **150 million
+confirmed cases** and more than **3.2 million deaths** worldwide.
 
-The .metadata.json file contains metadata about the data package. The "charts" key contains information to recreate the chart, like the title, subtitle etc.. The "columns" key contains information about each of the columns in the csv, like the unit, timespan covered, citation for the data etc..
+### Continental Comparison
 
-## About the data
+  ----------------------------------------------------------------------------
+  Continent          Cases       Deaths   Death Rate      Cases /     Deaths /
+                                                          Million      Million
+  ----------- ------------ ------------ ------------ ------------ ------------
+  North America      32.3M         576K        1.78%       97,724        1,741
 
-Our World in Data is almost never the original producer of the data - almost all of the data we use has been compiled by others. If you want to re-use data, it is your responsibility to ensure that you adhere to the sources' license and to credit them correctly. Please note that a single time series may have more than one source - e.g. when we stich together data from different time periods by different producers or when we calculate per capita metrics using population data from a second source.
+  South America      14.7M         404K        2.75%       68,964        1,900
 
-## Detailed information about the data
+  Asia               19.2M         212K        1.11%       13,315          147
 
+  Europe              5.7M         128K        2.25%       38,907          876
 
-## New deaths (per 1M)
-Last updated: April 19, 2026  
-Next update: May 2026  
-Unit: deaths per million people  
+  Africa              1.6M          54K        3.44%        7,671          264
 
+  Oceania              30K          910        3.05%        1,169           36
+  ----------------------------------------------------------------------------
 
-### How to cite this data
+The report highlights two notable differences:
 
-#### In-line citation
-If you have limited space (e.g. in data visualizations), you can use this abbreviated in-line citation:  
-World Health Organization (2026); Population based on various sources (2024) – with minor processing by Our World in Data
+-   **Africa** had the highest death-to-case ratio at **3.44%**, while
+    having relatively few cases per capita. The report links this to
+    factors such as limited testing capacity and healthcare
+    infrastructure.
+-   **South America** had the highest reported death toll per million
+    people at **1,900 deaths per million**.
 
-#### Full citation
-World Health Organization (2026); Population based on various sources (2024) – with minor processing by Our World in Data. “New deaths (per 1M)” [dataset]. World Health Organization, “COVID-19 Dashboard WHO COVID-19 Dashboard - Daily cases and deaths”; Various sources, “Population” [original data].
-Source: World Health Organization (2026), Population based on various sources (2024) – with minor processing by Our World In Data
+These points are presented as part of the report's analysis and should
+be interpreted alongside the data-quality limitations discussed later.
 
-### Sources
+### Country-Level Analysis
 
-#### World Health Organization – COVID-19 Dashboard
-Retrieved on: 2026-04-19  
-Retrieved from: https://covid19.who.int/  
+The report also looks at countries with the highest total death counts.
 
-#### Various sources – Population
-Retrieved on: 2026-03-31  
-Retrieved from: https://ourworldindata.org/population-sources  
+The **United States, Brazil, India, Mexico, and the United Kingdom**
+accounted for more than half of the global deaths in the dataset.
 
-#### Notes on our processing step for this indicator
-This indicator is estimated by normalizing by population. We have used daily population estimates, which leads to changes in the denominator between datapoints from different days. For instance, the denominator for January 1st will be different to the one on January 2nd.
+For countries with more than 100,000 reported cases, the highest case
+fatality rates in the report were:
 
+  Country     Case Fatality Rate
+  --------- --------------------
+  Mexico                   9.25%
+  Egypt                    5.86%
+  Ecuador                  4.88%
+  China                    4.73%
+  Bosnia                   4.31%
 
-    
+The report also notes that case fatality rates can be strongly affected
+by testing levels and other data limitations, so these figures should
+not be treated as a direct measure of healthcare performance.
+
+## Vaccination Analysis
+
+The report compares vaccination progress across several countries.
+
+Some of the reported figures for fully vaccinated people were:
+
+  Country            Fully Vaccinated   Share of Population
+  ---------------- ------------------ ---------------------
+  Israel                         5.1M                58.84%
+  United States                101.4M                30.64%
+  United Kingdom                ~15M                 ~22%
+  Serbia                         1.5M                21.87%
+  Hungary                        1.9M                20.17%
+  Russia                         7.5M                 5.16%
+  Canada                         1.1M                 2.89%
+  Indonesia                      7.6M                 2.80%
+  India                         26.6M                 1.93%
+
+The report discusses the relationship between vaccination access and
+economic conditions, while also pointing out that vaccination data was
+still limited during parts of the analyzed period.
+
+## Transmission Dynamics
+
+The analysis also looks at the **R-value**, which was used to understand
+transmission patterns.
+
+Some of the higher R-values reported were:
+
+-   Nepal: **1.99**
+-   Sri Lanka: **1.79**
+-   Cambodia: **1.57**
+
+The report also found that many island nations had R-values close to
+zero, while several large economies had R-values around or below 1
+during the analyzed period.
+
+The report highlights higher R-values in parts of Asia as an early
+warning signal for later transmission waves.
+
+## Data Quality
+
+One important part of the project was looking at the quality and
+completeness of the dataset.
+
+The report identified several issues:
+
+-   Around **90% of ICU data was missing**
+-   Around **89% of vaccination data was missing**
+-   Around **50% of testing data was missing**
+-   **4,111 rows** had null continent values
+-   Aggregate entries were mixed with country-level data
+
+These issues matter because missing data can affect comparisons between
+countries and regions.
+
+## Methodology
+
+The analysis was based on the **WHO COVID-19 Dashboard through Our World
+in Data**.
+
+### Dataset
+
+-   Period: January 1, 2020 -- April 30, 2021
+-   Coverage: 219 locations
+-   Observations: 85,171
+-   Variables: 59
+
+### Workflow
+
+``` text
+COVID-19 Dataset
+       ↓
+SQL ETL & Data Preparation
+       ↓
+Python Data Analysis
+       ↓
+Power BI Visualization
+       ↓
+Executive Analysis & Recommendations
+```
+
+### Tools Used
+
+  Tool       Purpose
+  ---------- -------------------------------------------
+  SQL        Data preparation, cleaning, and ETL
+  Python     Data analysis and exploration
+  Power BI   Visualization and reporting
+  GitHub     Project version control and documentation
+
+## Strategic Takeaways
+
+Based on the report's analysis, several areas stood out:
+
+-   **Testing capacity matters:** Case numbers are difficult to
+    interpret without considering how much testing was being done.
+-   **Vaccination is also an epidemiological factor:** Differences in
+    vaccine access affected the situation across countries.
+-   **Deaths are a lagging indicator:** Death figures need to be
+    considered alongside cases and transmission trends.
+-   **Data infrastructure matters:** Missing or inconsistent reporting
+    can make international comparisons less reliable.
+
+## Recommendations from the Report
+
+The report recommends:
+
+1.  Strengthening ICU and hospitalization reporting.
+2.  Tracking death rates alongside case rates.
+3.  Monitoring R-values at the regional level.
+4.  Prioritizing vaccine delivery to countries with high transmission
+    rates.
+
+## Limitations
+
+There are several limitations to keep in mind when interpreting the
+analysis:
+
+-   Case fatality rates are sensitive to differences in testing.
+-   Some anomalies were found in the July 2020 data.
+-   Vaccination data was relatively sparse during early 2021.
+-   A large amount of ICU, testing, and vaccination data was missing.
+
+Because of these limitations, the findings are best viewed in the
+context of the available data rather than as a complete picture of the
+pandemic.
+
+## Project Deliverables
+
+The project includes:
+
+-   SQL data preparation and ETL
+-   Python analysis
+-   Power BI visualizations
+-   Country and continental comparisons
+-   Vaccination analysis
+-   R-value analysis
+-   Data-quality analysis
+-   Executive report with findings and recommendations
+
+## What This Project Shows
+
+This project combines **SQL, Python, and Power BI** to take a large
+real-world dataset from raw data preparation through analysis and
+visualization.
+
+More importantly, it focuses not only on producing charts, but also on
+understanding **what the data can actually tell us, where the data has
+limitations, and how those limitations affect the analysis**.
+
+## Author
+
+**Abanoub Emad Nazir**\
+Computer Science Graduate \| Data Analyst \| Business Intelligence
+
+Skills used in this project:
+
+-   SQL
+-   Python
+-   Power BI
+-   Data Cleaning
+-   Data Analysis
+-   Data Visualization
+-   Statistical Analysis
+-   Business Reporting
+
+GitHub: [Abanoub534](https://github.com/Abanoub534)
+
+## Project Summary
+
+A global COVID-19 analysis covering **219 countries from January 2020 to
+April 2021**, using SQL, Python, and Power BI to explore the pandemic's
+impact, vaccination progress, transmission patterns, and data quality.
